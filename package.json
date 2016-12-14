@@ -14,12 +14,30 @@
     "react-addons-update": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^3.0.1",
-    "redux": "^3.1.0"
+    "redux": "^3.1.0",
+    "xo": "^0.17.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "xo ./src/**/* src/*"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        0
+      ],
+      "padded-blocks": [
+        0
+      ],
+      "object-curly-spacing": [
+        0
+      ],
+       "object-shorthand": [1]
+    }
   }
 }

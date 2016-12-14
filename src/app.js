@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { connect} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import { connect} from 'react-redux';
 import ActionCreators from './actions/action-creators';
 
 class App extends Component {
 
-componentDidMount (){
-  this.props.InitTempText();
-}
+  componentDidMount() {
+    this.props.initTempText();
+  }
   render() {
     return (
       <div className="App">
@@ -27,16 +27,16 @@ componentDidMount (){
   }
 }
 
-const mapStateToProps = (state) => (
- {
-   tempText : state.test
- }
+const mapStateToProps = state => (
+  {
+    tempText: state.test
+  }
 );
 
-const mapDispatchToProps = (dispatch) => (
- {
-   InitTempText : () => dispatch(ActionCreators.testrequest())
- }
+const mapDispatchToProps = dispatch => (
+  {
+    initTempText: () => dispatch(ActionCreators.testrequest())
+  }
 );
 
 const AppConnect = connect(mapStateToProps, mapDispatchToProps)(App);

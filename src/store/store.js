@@ -11,6 +11,5 @@ export default function configureStore(initialState) {
       store.replaceReducer(require('../reducers'))
     );
   }
-
   return store;
 }
