@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect} from 'react-redux';
+import ActionCreators from './actions/action-creators';
 
 class App extends Component {
+
+componentDidMount (){
+  this.props.InitTempText();
+}
   render() {
     return (
       <div className="App">
@@ -11,6 +17,9 @@ class App extends Component {
           <h2>Welcome to React!</h2>
         </div>
         <p className="App-intro">
+          Here are any text: {this.props.tempText}
+        </p>
+        <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
       </div>
@@ -18,4 +27,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => (
+ {
+   tempText : state.test
+ }
+);
+
+const mapDispatchToProps = (dispatch) => (
+ {
+   InitTempText : () => dispatch(ActionCreators.testrequest())
+ }
+);
+
+const AppConnect = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default AppConnect;

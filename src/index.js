@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider, connect} from 'react-redux';
+import { Provider } from 'react-redux';
 import './index.css';
-import configureStore from './store/configureStore';
-import Root from './containers/Root';
+import configureStore from './store/store';
+import App from './App';
 
 const store = configureStore();
 
-const AppContainer = connect()(Root);
-
 ReactDOM.render(
-  <Provider store={ store }>
-    <AppContainer />
-  </ Provider>,
+  <Provider store={store}>
+      <App />
+  </Provider>,
   document.getElementById('root')
 );
