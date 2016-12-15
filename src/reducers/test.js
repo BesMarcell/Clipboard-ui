@@ -1,4 +1,4 @@
-import {REQUEST_TEST} from '../constants';
+import {REQUEST_TEST} from '../constants/';
 
 const test = (state = '___', action) => {
   switch (action.type) {

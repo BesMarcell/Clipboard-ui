@@ -20,6 +20,9 @@ class App extends Component {
         <p className="App-intro">
           Here are any text: {this.props.tempText}
         </p>
+        <p>
+          Information from server: {this.props.serverInfo}
+        </p>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
@@ -30,7 +33,8 @@ class App extends Component {
 
 const mapStateToProps = state => (
   {
-    tempText: state.test
+    tempText: state.test,
+    serverInfo: state.serverInfo.api.prefix
   }
 );
 

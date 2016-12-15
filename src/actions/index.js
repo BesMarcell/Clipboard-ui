@@ -1,4 +1,4 @@
-import { REQUEST_TEST, FETCH_SERVER_INFO_REQUESTED } from '../constants';
+import { REQUEST_TEST, FETCH_SERVER_INFO_REQUESTED } from '../constants/';
 
 const ActionCreators = {
   testrequest() {
@@ -8,9 +8,7 @@ const ActionCreators = {
     };
   },
   serverRequest() {
-
     return {
-
       type: FETCH_SERVER_INFO_REQUESTED
     };
   }
