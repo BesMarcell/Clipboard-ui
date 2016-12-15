@@ -1,4 +1,4 @@
-import {REQUEST_TEST} from '../constants';
+import { REQUEST_TEST, FETCH_SERVER_INFO_REQUESTED } from '../constants';
 
 const ActionCreators = {
   testrequest() {
@@ -6,7 +6,13 @@ const ActionCreators = {
       type: REQUEST_TEST,
       text: 'Hello from reducer'
     };
+  },
+  serverRequest() {
+
+    return {
+
+      type: FETCH_SERVER_INFO_REQUESTED
+    };
   }
 };
-
 export default ActionCreators;

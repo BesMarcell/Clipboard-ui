@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import ActionCreators from './actions/action-creators';
+import Actions from './actions';
 
 class App extends Component {
 
   componentDidMount() {
     this.props.initTempText();
+    this.props.getServerInfo();
   }
   render() {
     return (
@@ -35,7 +36,8 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => (
   {
-    initTempText: () => dispatch(ActionCreators.testrequest())
+    initTempText: () => dispatch(Actions.testrequest()),
+    getServerInfo: () => dispatch(Actions.serverRequest())
   }
 );
 
