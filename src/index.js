@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider, connect} from 'react-redux';
-import App from './App';
+import { Provider } from 'react-redux';
 import './index.css';
-import clipbeardStore from './store/clipbeardStore';
+import configureStore from './store/store';
+import App from './app';
 
-const AppContainer = connect()(App);
+const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={ clipbeardStore }>
-    <AppContainer />
-  </ Provider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

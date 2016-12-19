@@ -3,19 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.4"
+    "react-scripts": "0.8.4",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-extension": "^1.0.0",
+    "redux-devtools-log-monitor": "^1.1.1"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "react": "^15.4.1",
+    "react-addons-update": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^3.0.1",
-    "redux": "^3.0.0"
-
+    "redux": "^3.1.0",
+    "redux-saga": "^0.13.0",
+    "xo": "^0.17.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "xo ./src/**/* src/*"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        0
+      ],
+      "padded-blocks": [
+        0
+      ],
+      "object-curly-spacing": [
+        0
+      ],
+      "object-shorthand": [
+        1
+      ]
+    }
   }
 }
