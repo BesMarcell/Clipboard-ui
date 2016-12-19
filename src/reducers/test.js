@@ -1,10 +1,11 @@
 import {REQUEST_TEST} from '../constants/';
+import createReducer from './../utils/createReducer';
 
-const test = (state = '___', action) => {
-  switch (action.type) {
-    case REQUEST_TEST: return action.text;
-    default: return state;
+const initialState = '___';
+
+const test = createReducer(initialState, {
+  [REQUEST_TEST]: (state, payload) => {
+    return payload.text;
   }
-};
-
+});
 export default test;
