@@ -6,7 +6,7 @@ import mySaga from '../sagas';
 export default function configureStore() {
 
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(rootReducer, process.env.NODE_ENV !== 'production' &&
+  const store = createStore(rootReducer, process.env.NODE_ENV === 'development' &&
     typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(sagaMiddleware));
 
   if (module.hot) {
@@ -15,5 +15,6 @@ export default function configureStore() {
     );
   }
   sagaMiddleware.run(mySaga);
+
   return store;
 }

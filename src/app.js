@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import Actions from './actions';
+import { FETCH_SERVER_INFO_REQUESTED, REQUEST_TEST } from './constants/';
 
 class App extends Component {
 
   componentDidMount() {
-    this.props.initTempText();
-    this.props.getServerInfo();
+    const {dispatch} = this.props;
+    dispatch({
+      type: REQUEST_TEST,
+      text: 'Hello from reducer'
+    });
+    dispatch({
+      type: FETCH_SERVER_INFO_REQUESTED
+    });
   }
   render() {
     return (
@@ -21,7 +27,7 @@ class App extends Component {
           Here are any text: {this.props.tempText}
         </p>
         <p>
-          Information from server: {this.props.serverInfo}
+          Information from server: {this.props.serverInfo.api.prefix}
         </p>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
@@ -34,17 +40,8 @@ class App extends Component {
 const mapStateToProps = state => (
   {
     tempText: state.test,
-    serverInfo: state.serverInfo.api.prefix
+    serverInfo: state.serverInfo
   }
 );
 
-const mapDispatchToProps = dispatch => (
-  {
-    initTempText: () => dispatch(Actions.testrequest()),
-    getServerInfo: () => dispatch(Actions.serverRequest())
-  }
-);
-
-const AppConnect = connect(mapStateToProps, mapDispatchToProps)(App);
-
-export default AppConnect;
+export default connect(mapStateToProps)(App);

@@ -1,5 +1,5 @@
-export const REQUEST_TEST = 'request test';
+export const REQUEST_TEST = 'REQUEST_TEST';
 
-export const FETCH_SERVER_INFO_REQUESTED = 'fetch server info request';
-export const FETCH_SERVER_INFO_SUCCESSED = 'fetch server info successed';
-export const FETCH_SERVER_INFO_FAILED = 'fetch server info failed';
+export const FETCH_SERVER_INFO_REQUESTED = 'FETCH_SERVER_INFO_REQUESTED';
+export const FETCH_SERVER_INFO_SUCCESSED = 'FETCH_SERVER_INFO_SUCCESSED';
+export const FETCH_SERVER_INFO_FAILED = 'FETCH_SERVER_INFO_FAILED';
