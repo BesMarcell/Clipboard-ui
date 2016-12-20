@@ -11,7 +11,7 @@ const serverInfo = createReducer(initialState, {
   [FETCH_SERVER_INFO_REQUESTED]: state => {
     return {
       ...state
-    }
+    };
   },
   [FETCH_SERVER_INFO_SUCCESSED]: (state, payload) => {
     return {
@@ -19,13 +19,13 @@ const serverInfo = createReducer(initialState, {
       serverUnixTime: payload.info.serverUnixTime,
       serverTime: payload.info.serverTime,
       api: payload.info.api
-    }
+    };
   },
   [FETCH_SERVER_INFO_FAILED]: state => {
     return {
       ...state
-    }
+    };
   }
-})
+});
 
 export default serverInfo;
