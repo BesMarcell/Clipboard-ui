@@ -1,4 +1,4 @@
-import {FETCH_SERVER_INFO_REQUESTED, FETCH_SERVER_INFO_SUCCESSED, FETCH_SERVER_INFO_FAILED} from '../constants/';
+import {FETCH_SERVER_INFO_REQUESTED, FETCH_SERVER_INFO_SUCCESSED, FETCH_SERVER_INFO_FAILED} from '../constants/test';
 import createReducer from './../utils/createReducer';
 
 const initialState = {

@@ -1,4 +1,4 @@
-import {REQUEST_TEST} from '../constants/';
+import {REQUEST_TEST} from '../constants/test';
 import createReducer from './../utils/createReducer';
 
 const initialState = '___';
