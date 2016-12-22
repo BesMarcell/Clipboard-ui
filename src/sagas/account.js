@@ -3,7 +3,7 @@ import { put, call } from 'redux-saga/effects';
 import * as types from './../constants/account';
 import { Api } from './../api';
 
-function* signup(action) {
+function * signup(action) {
   try {
     const response = yield call(Api.account.signup, action.payload);
     yield put({ type: types.ACCOUNT_SIGNUP_SUCCESSED, account: response.data });
@@ -12,7 +12,7 @@ function* signup(action) {
   }
 }
 
-function* signin(action) {
+function * signin(action) {
   try {
     const response = yield call(Api.account.signin, action.payload);
     yield put({ type: types.ACCOUNT_SIGNIN_SUCCESSED, account: response.data });
@@ -21,27 +21,27 @@ function* signin(action) {
   }
 }
 
-function* logout() {
+function * logout() {
   try {
     yield call(Api.account.logout);
     yield put({ type: types.ACCOUNT_LOGOUT_SUCCESSED });
   } catch (err) {
-    yield put({ type: types.ACCOUNT_LOGOUT_FAILED })
+    yield put({ type: types.ACCOUNT_LOGOUT_FAILED });
   }
 }
 
-function* signupSaga() {
+function * signupSaga() {
   yield takeLatest(types.ACCOUNT_SIGNUP_REQUESTED, signup);
 }
 
-function* signinSaga() {
-  yield takeLatest(types.ACCOUNT_SIGNIN_REQUESTED, signin)
+function * signinSaga() {
+  yield takeLatest(types.ACCOUNT_SIGNIN_REQUESTED, signin);
 }
 
-function* logoutSaga () {
-  yield takeLatest(types.ACCOUNT_LOGOUT_REQUESTED, logout)
+function * logoutSaga() {
+  yield takeLatest(types.ACCOUNT_LOGOUT_REQUESTED, logout);
 }
 
 export { signupSaga };
 export { signinSaga };
-export { logoutSaga }
+export { logoutSaga };

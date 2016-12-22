@@ -204,7 +204,7 @@ class Signup extends Component {
                 </Form.Field>
               </Form>
               <Message>
-                Already signed up? <Link to="/signin">sign in</Link>
+                Already signed up? <Link to="/signin">sign in</Link>  or go <Link to="/"> Home </Link>
               </Message>
             </Grid.Row>
           </Grid.Column>

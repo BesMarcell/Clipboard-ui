@@ -26,12 +26,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h3>Welcome to React!</h3>
         </div>
+        {/*
         <p className="App-intro">
           Here are any text: {this.props.tempText}
         </p>
         <p>
           Information from server: {this.props.serverInfo.api.prefix}
         </p>
+        */}
         <MainRouter />
       </div>
     );

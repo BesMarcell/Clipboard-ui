@@ -18,8 +18,8 @@ function signin(payload) {
 
 function logout(){
   const url = `${fullUrl}/auth/logout`;
-  return
-    axios.get(url);
+// eslint-disable-next-line
+  return axios.get(url);
 }
 
 const account = {

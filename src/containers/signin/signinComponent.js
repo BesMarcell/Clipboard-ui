@@ -179,7 +179,7 @@ renderConnectError() {
                 </Form>
               </Grid.Column>
               <Message attached='bottom'>
-                Not registered yet? Please <Link to="/signup"> sign up </Link>
+                Not registered yet? <Link to="/signup"> sign up </Link> or go <Link to="/"> Home </Link>
               </Message>
             </Grid.Row>
           </Grid.Column>
