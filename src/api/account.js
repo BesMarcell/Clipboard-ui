@@ -16,9 +16,16 @@ function signin(payload) {
   });
 }
 
+function logout(){
+  const url = `${fullUrl}/auth/logout`;
+  return
+    axios.get(url);
+}
+
 const account = {
   signup,
-  signin
+  signin,
+  logout
 };
 
 export default account;

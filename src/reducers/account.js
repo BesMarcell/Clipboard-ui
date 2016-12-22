@@ -50,6 +50,26 @@ const serverInfo = createReducer(initialState, {
       statusCode: payload.response.status,
       isAuthenticated: false
     };
+  },
+  [types.ACCOUNT_LOGOUT_REQUESTED]: state => {
+    return {
+      ...state,
+      isAuthenticated: true
+    }
+  },
+  [types.ACCOUNT_LOGOUT_SUCCESSED]: state => {
+    return {
+      ...state,
+      isAuthenticated: false,
+      info: null,
+      errorMessage: null,
+      statusCode: 200
+    }
+  },
+  [types.ACCOUNT_LOGOUT_FAILED]: state => {
+    return {
+      ...state
+    }
   }
 });
 
