@@ -16,16 +16,22 @@ function signin(payload) {
   });
 }
 
-function logout(){
+function logout() {
   const url = `${fullUrl}/auth/logout`;
 // eslint-disable-next-line
+  return axios.get(url);
+}
+
+function fetch() {
+  const url = `${fullUrl}/auth`;
   return axios.get(url);
 }
 
 const account = {
   signup,
   signin,
-  logout
+  logout,
+  fetch
 };
 
 export default account;

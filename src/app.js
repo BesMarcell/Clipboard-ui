@@ -3,14 +3,20 @@ import { connect} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import { FETCH_SERVER_INFO_REQUESTED, REQUEST_TEST } from './constants/test';
+import { ACCOUNT_FETCH_REQUESTED } from './constants/account';
 import MainRouter from './containers/MainRouter';
 import setLocale from './locales';
 
 class App extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     setLocale('en');
     const {dispatch} = this.props;
+
+    dispatch({
+      type: ACCOUNT_FETCH_REQUESTED
+    });
+
     dispatch({
       type: REQUEST_TEST,
       text: 'Hello from reducer'
@@ -43,7 +49,8 @@ class App extends Component {
 const mapStateToProps = state => (
   {
     tempText: state.test,
-    serverInfo: state.serverInfo
+    serverInfo: state.serverInfo,
+    account: state.account
   }
 );
 

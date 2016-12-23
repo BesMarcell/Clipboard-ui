@@ -35,6 +35,7 @@ class Welcome extends Component {
     const active = this.state;
     return (
       <div>
+      You are: {this.props.account.info ? this.props.account.info.email:null}
       <Menu>
         <Menu.Item
         active={active === ''}

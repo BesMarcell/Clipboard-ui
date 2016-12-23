@@ -30,6 +30,15 @@ function * logout() {
   }
 }
 
+function * fetchAccount(action) {
+  try {
+    const response = yield call(Api.account.fetch);
+    yield put({ type: types.ACCOUNT_FETCH_SUCCESSED, account: response.data});
+  } catch (err) {
+    yield put({ type: types.ACCOUNT_FETCH_FAILED, response: err.response })
+  }
+}
+
 function * signupSaga() {
   yield takeLatest(types.ACCOUNT_SIGNUP_REQUESTED, signup);
 }
@@ -42,6 +51,11 @@ function * logoutSaga() {
   yield takeLatest(types.ACCOUNT_LOGOUT_REQUESTED, logout);
 }
 
+function * fetchAccountSaga() {
+  yield takeLatest(types.ACCOUNT_FETCH_REQUESTED, fetchAccount)
+}
+
 export { signupSaga };
 export { signinSaga };
 export { logoutSaga };
+export { fetchAccountSaga };

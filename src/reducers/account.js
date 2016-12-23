@@ -70,6 +70,27 @@ const serverInfo = createReducer(initialState, {
     return {
       ...state
     }
+  },
+  [types.ACCOUNT_FETCH_REQUESTED]: (state, payload) => {
+    return {
+      ...state,
+      errorMessage: null
+    };
+  },
+  [types.ACCOUNT_FETCH_SUCCESSED]: (state, payload) => {
+    return {
+      ...state,
+      // info: payload.account,
+      isAuthenticated: true
+    };
+  },
+  [types.ACCOUNT_FETCH_FAILED]: (state, payload) => {
+    return {
+      ...state,
+      errorMessage: payload.response.data.error,
+      statusCode: payload.response.status,
+      isAuthenticated: false
+    };
   }
 });
 
