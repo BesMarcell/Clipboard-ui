@@ -29,9 +29,9 @@
     "xo": "^0.17.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "PORT=3000 NODE_ENV=development node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "xo ./src/**/* src/*"
   },
@@ -52,5 +52,13 @@
         1
       ]
     }
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }
