@@ -79,7 +79,7 @@ const serverInfo = createReducer(initialState, {
   },
   [types.ACCOUNT_FETCH_SUCCESSED]: (state, payload) => {
     return {
-      ...state,
+      ...state
       // info: payload.account,
       // isAuthenticated: true
     };
