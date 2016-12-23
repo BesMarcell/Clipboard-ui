@@ -80,8 +80,6 @@ const serverInfo = createReducer(initialState, {
   [types.ACCOUNT_FETCH_SUCCESSED]: (state, payload) => {
     return {
       ...state
-      // info: payload.account,
-      // isAuthenticated: true
     };
   },
   [types.ACCOUNT_FETCH_FAILED]: (state, payload) => {
