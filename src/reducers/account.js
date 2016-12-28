@@ -3,7 +3,7 @@ import createReducer from './../utils/createReducer';
 
 const initialState = {
   info: null,
-  isAuthenticating: false,
+  isAuthenticating: true,
   isAuthenticated: false,
   errorMessage: null
 };
@@ -61,7 +61,7 @@ const serverInfo = createReducer(initialState, {
     return {
       ...state,
       isAuthenticated: false,
-      info: null,
+      info: '',
       errorMessage: null,
       statusCode: 200
     };
@@ -81,7 +81,7 @@ const serverInfo = createReducer(initialState, {
     return {
       ...state,
       info: payload.account,
-      isAuthenticated: true
+      // isAuthenticated: true
     };
   },
   [types.ACCOUNT_FETCH_FAILED]: (state, payload) => {

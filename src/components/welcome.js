@@ -7,7 +7,7 @@ import { Menu, Header, Button } from 'semantic-ui-react';
 class Welcome extends Component {
 
   renderButtons() {
-    if (!this.props.account.isAuthenticated) {
+    if (this.props.account.info === '') {
       return (
         <div>
           Would you wish <Link to="/signup">Sign up</Link> or <Link to="/signin">Sign in</Link>
@@ -46,7 +46,7 @@ class Welcome extends Component {
           </Header>
         </Menu.Item>
         <Menu.Menu position='right'>
-          {!this.props.account.isAuthenticated ?
+          {this.props.account.info === '' ?
             <Menu.Item
             active={active === 'signin'}
             name="signin"
@@ -56,7 +56,7 @@ class Welcome extends Component {
               </Header>
             </Menu.Item>
           : null}
-            { !this.props.account.isAuthenticated ?
+            { this.props.account.info === '' ?
               <Menu.Item
               active={active === 'signup'}
               name="signup"
@@ -67,7 +67,7 @@ class Welcome extends Component {
               </Menu.Item>
             : null}
 
-          {this.props.account.isAuthenticated ?
+          {this.props.account.info !== '' ?
             <Menu.Item
             active={active === 'signout'}
             name="signout"

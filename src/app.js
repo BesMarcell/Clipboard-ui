@@ -12,7 +12,7 @@ class App extends Component {
   componentWillMount() {
     setLocale('en');
     const {dispatch} = this.props;
-
+    
     dispatch({
       type: ACCOUNT_FETCH_REQUESTED
     });

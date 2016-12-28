@@ -105,7 +105,7 @@ showServerErrors() {
     return (
       <Message negative>
         <p>
-          Incorrect email or password
+          Incorrect email and password
         </p>
       </Message>
     )

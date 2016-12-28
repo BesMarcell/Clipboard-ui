@@ -48,7 +48,7 @@ class Signup extends Component {
   }
 
   componentWillMount() {
-    if (this.props.account.isAuthenticated) {
+    if (this.props.account.isAuthenticated && this.props.account.info !== '') {
       browserHistory.push('/');
     }
   }
