@@ -1,9 +1,11 @@
 import account from './account';
 import server from './server';
+import clipboard from './clipboard';
 
 const Api = {
   account,
-  server
+  server,
+  clipboard
 };
 
 export { Api };

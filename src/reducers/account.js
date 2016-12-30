@@ -3,7 +3,7 @@ import createReducer from './../utils/createReducer';
 
 const initialState = {
   info: null,
-  isAuthenticating: true,
+  // isAuthenticating: true,
   isAuthenticated: false,
   errorMessage: null
 };

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as types from './../constants/account';
 import { Menu, Header, Button } from 'semantic-ui-react';
 
-class Welcome extends Component {
+class Sidebar extends Component {
 
   renderButtons() {
     if (this.props.account.info === '') {
@@ -45,6 +45,14 @@ class Welcome extends Component {
             Home
           </Header>
         </Menu.Item>
+        <Menu.Item
+        active={active === 'clipboards'}
+        name="clipboards"
+        onClick={this.clickHandler.bind(this)}>
+          <Header>
+            Clipboards
+          </Header>
+        </Menu.Item>
         <Menu.Menu position='right'>
           {this.props.account.info === '' ?
             <Menu.Item
@@ -80,9 +88,8 @@ class Welcome extends Component {
 
         </Menu.Menu>
       </Menu>
-        <p>
-          Welcome MEN!
-        </p>
+        <div>
+        </div>
         {this.renderButtons()}
       </div>
     );
@@ -92,4 +99,4 @@ const mapStateToProps = state => ({
   account: state.account
 });
 
-export default connect(mapStateToProps)(Welcome);
+export default connect(mapStateToProps)(Sidebar);
