@@ -90,7 +90,7 @@ class Sidebar extends Component {
       </Menu>
         <div>
         </div>
-        {this.renderButtons()}
+        {/*this.renderButtons()*/}
       </div>
     );
   }

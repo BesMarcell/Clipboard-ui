@@ -95,9 +95,10 @@ class addClipboardModal extends Component {
   }
 
   render() {
-    const types = [{value: 'text', text: 'text'}];
 
-      const addModal = (
+    let addModal = "";
+    if (this.props.account.info) {
+      addModal = (
         <Modal trigger={<Button onClick={this.handleOpen.bind(this)} primary>ADD clipboard </Button>}
           open={ this.state.modalOpen }
           onClose={this.handleClose.bind(this)} >
@@ -124,7 +125,7 @@ class addClipboardModal extends Component {
                 <Select
                 placeholder="select the type"
                 name="type"
-                options={types}
+                options={this.props.types}
                 onChange={this.handleSelect.bind(this)}/>
                 { this.state.errorMessages.type.show?
                 <Label basic color="red" pointing>{ this.state.errorMessages.type.message }</Label> : null}
@@ -136,6 +137,9 @@ class addClipboardModal extends Component {
           </Modal.Content>
         </Modal>
       )
+
+    }
+
 
     return (
       <div>
