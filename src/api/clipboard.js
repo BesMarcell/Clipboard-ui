@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from './../config';
+
 const fullUrl = `${config.api.host}${config.api.prefix}`;
 
 function addClipboard(payload) {
@@ -12,9 +13,16 @@ function receiveClipboards() {
   return axios.get(url, { withCredentials: true });
 }
 
+function deleteClipboard(id) {
+  const url = `${fullUrl}/clipboard/${id}`;
+  return axios.delete(url, { withCredentials: true });
+
+}
+
 const clipboard = {
   addClipboard,
-  receiveClipboards
+  receiveClipboards,
+  deleteClipboard
 };
 
 export default clipboard;

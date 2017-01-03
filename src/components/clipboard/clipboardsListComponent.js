@@ -22,6 +22,7 @@ class clipboardList extends Component {
       clipboardsList = filteredClipboards.map(clipboard => {
         return (<ClipboardItemComonent
           key={clipboard._id}
+          _id={clipboard._id}
           value={clipboard.value}
           type={clipboard.type}
           account={clipboard.account.email}/>);
