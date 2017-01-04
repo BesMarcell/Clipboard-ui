@@ -53,8 +53,8 @@ const serverInfo = createReducer(initialState, {
   },
   [types.ACCOUNT_LOGOUT_REQUESTED]: state => {
     return {
-      ...state,
-      isAuthenticated: true
+      ...state
+      // isAuthenticated: false
     };
   },
   [types.ACCOUNT_LOGOUT_SUCCESSED]: state => {
@@ -69,19 +69,21 @@ const serverInfo = createReducer(initialState, {
   [types.ACCOUNT_LOGOUT_FAILED]: state => {
     return {
       ...state
+      // isAuthenticated: false
     };
   },
   [types.ACCOUNT_FETCH_REQUESTED]: (state, payload) => {
     return {
       ...state,
-      errorMessage: null
+      errorMessage: null,
+      isAuthenticated: true
     };
   },
   [types.ACCOUNT_FETCH_SUCCESSED]: (state, payload) => {
     return {
       ...state,
       info: payload.account,
-      // isAuthenticated: true
+      isAuthenticated: true
     };
   },
   [types.ACCOUNT_FETCH_FAILED]: (state, payload) => {

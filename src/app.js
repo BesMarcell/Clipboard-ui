@@ -8,7 +8,7 @@ import MainRouter from './containers/MainRouter';
 import setLocale from './locales';
 
 class App extends Component {
-
+  
   componentWillMount() {
     setLocale('en');
     const {dispatch} = this.props;

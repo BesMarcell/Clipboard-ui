@@ -54,7 +54,7 @@ class Sidebar extends Component {
           </Header>
         </Menu.Item>
         <Menu.Menu position='right'>
-          {this.props.account.info === '' ?
+          { this.props.account.isAuthenticated !== true ?
             <Menu.Item
             active={active === 'signin'}
             name="signin"
@@ -64,7 +64,7 @@ class Sidebar extends Component {
               </Header>
             </Menu.Item>
           : null}
-            { this.props.account.info === '' ?
+            { this.props.account.isAuthenticated !== true ?
               <Menu.Item
               active={active === 'signup'}
               name="signup"
@@ -75,7 +75,7 @@ class Sidebar extends Component {
               </Menu.Item>
             : null}
 
-          {this.props.account.info !== '' ?
+          {this.props.account.isAuthenticated === true ?
             <Menu.Item
             active={active === 'signout'}
             name="signout"

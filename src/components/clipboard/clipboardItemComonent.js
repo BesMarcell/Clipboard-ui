@@ -38,12 +38,15 @@ class ClipboardItemComonent extends Component {
       secondary size="small">Delete</Button>}
         open={ this.state.modalOpen }
         onClose={this.handleClose.bind(this)} >
-        <Modal.Header>Are you sure?</Modal.Header>
+        <Modal.Header>
+          Delete Your Clipboard
+        </Modal.Header>
+        <Modal.Content>
+          <p>Are you sure you want to delete your clipboard?</p>
+        </Modal.Content>
         <Modal.Content>
           <Form onSubmit={this.deleteClipboard.bind(this)}>
-            <Button secondary >
-              Delete
-            </Button>
+            <Button positive icon='checkmark' labelPosition='right' content='Yes' />
           </Form>
         </Modal.Content>
       </Modal>
@@ -60,8 +63,8 @@ class ClipboardItemComonent extends Component {
         <Table.Cell>
           {this.props.account}
         </Table.Cell>
-        <Table.Cell onClick={this.deleteClipboard.bind(this)}>
-          {this.props.account === this.props.accountEmail ? delModal : null}
+        <Table.Cell>
+          { this.props.accountInfo && this.props.account === this.props.accountInfo.email ? delModal : null }
         </Table.Cell>
       </Table.Row>
     );
@@ -69,7 +72,7 @@ class ClipboardItemComonent extends Component {
 }
 
 const mapStateToProps = state => ({
-  accountEmail: state.account.info.email
+  accountInfo: state.account.info
 })
 
 export default connect(mapStateToProps)(ClipboardItemComonent);

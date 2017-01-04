@@ -61,7 +61,13 @@ class addClipboardModal extends Component {
           type: types.CLIPBOARD_ADD_REQUESTED,
           payload: this.state.clipboardInfo
         });
-        this.setState({modalOpen: false});
+        this.setState({ modalOpen: false });
+        this.setState({
+          clipboardInfo: {
+            value: '',
+            type: ''
+          }
+        })
       }
   }
   this.props.validate(onValidate.bind(this))

@@ -35,7 +35,7 @@ function * fetchAccount(action) {
     const response = yield call(Api.account.fetch);
     yield put({ type: types.ACCOUNT_FETCH_SUCCESSED, account: response.data});
   } catch (err) {
-    yield put({ type: types.ACCOUNT_FETCH_FAILED, response: err.response })
+    yield put({ type: types.ACCOUNT_FETCH_FAILED, response: err.response });
   }
 }
 
@@ -52,7 +52,7 @@ function * logoutSaga() {
 }
 
 function * fetchAccountSaga() {
-  yield takeLatest(types.ACCOUNT_FETCH_REQUESTED, fetchAccount)
+  yield takeLatest(types.ACCOUNT_FETCH_REQUESTED, fetchAccount);
 }
 
 export { signupSaga };
