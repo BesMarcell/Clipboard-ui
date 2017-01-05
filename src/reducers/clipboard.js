@@ -4,7 +4,8 @@ import createReducer from './../utils/createReducer';
 const initialState = {
   clipboard: null,
   clipboards: null,
-  errorMessage: null
+  errorMessage: null,
+  types: [{value: 'text', text: 'text'}]
 };
 
 const clipboard = createReducer(initialState, {
@@ -40,6 +41,42 @@ const clipboard = createReducer(initialState, {
     };
   },
   [types.CLIPBOARDS_RECEIVE_FAILED]: (state, payload) => {
+    return {
+      ...state,
+      errorMessage: payload.response.error,
+      statusCode: payload.response.status
+    };
+  },
+  [types.CLIPBOARDS_DELETE_REQUESTED]: state => {
+    return {
+      ...state,
+      errorMessage: null
+    };
+  },
+  [types.CLIPBOARDS_DELETE_SUCCESSED]: (state, payload) => {
+    return {
+      ...state
+    };
+  },
+  [types.CLIPBOARDS_DELETE_FAILED]: (state, payload) => {
+    return {
+      ...state,
+      errorMessage: payload.response.error,
+      statusCode: payload.response.status
+    };
+  },
+  [types.CLIPBOARDS_EDIT_REQUESTED]: state => {
+    return {
+      ...state,
+      errorMessage: null
+    };
+  },
+  [types.CLIPBOARDS_EDIT_SUCCESSED]: (state, payload) => {
+    return {
+      ...state
+    };
+  },
+  [types.CLIPBOARDS_EDIT_FAILED]: (state, payload) => {
     return {
       ...state,
       errorMessage: payload.response.error,

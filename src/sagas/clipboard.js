@@ -33,6 +33,16 @@ function * clipboardDelete(action) {
   }
 }
 
+function * clipboardEdit(action) {
+  try {
+    yield call(Api.clipboard.editClipboard, action.payload);
+    yield put({ type: types.CLIPBOARD_EDIT_SUCCESSED })
+    yield put({ type: types.CLIPBOARDS_RECEIVE_REQUESTED });
+  } catch (err) {
+    yield put({ type: types.CLIPBOARD_EDIT_FAILED, response: err.response.data })
+  }
+}
+
 function * clipboardAddSaga() {
   yield takeLatest(types.CLIPBOARD_ADD_REQUESTED, clipboardAdd);
 }
@@ -45,6 +55,11 @@ function * clipboardDeleteSaga() {
   yield takeLatest(types.CLIPBOARD_DELETE_REQUESTED, clipboardDelete);
 }
 
+function * clipboardEditSaga() {
+  yield takeLatest(types.CLIPBOARD_EDIT_REQUESTED, clipboardEdit);
+}
+
 export { clipboardAddSaga };
 export { clipboardsReceiveSaga };
 export { clipboardDeleteSaga };
+export { clipboardEditSaga }

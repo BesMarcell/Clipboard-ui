@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Input } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import AddClipboard from './addClipboardComponent';
+import AddClipboard from './modalDialogClipboardComponent';
 import ClipboardsList from './clipboardsListComponent';
 
 class clipboards extends Component {
@@ -17,9 +17,8 @@ class clipboards extends Component {
     });
   }
   render() {
-    const types = [{value: 'text', text: 'text'}];
     const clipboards = (
-      <Grid divided="vertically">
+      <Grid divided="vertically" >
         <Grid.Row columns={2}>
           <Grid.Column width={4}>
             <Grid.Row>
@@ -32,12 +31,13 @@ class clipboards extends Component {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <AddClipboard types={ types }/>
+                <AddClipboard types={ this.props.types } name="ADD clipboard" head="Add clipboard"
+                  clipboard={{}} action="ADD" />
               </Grid.Column>
             </Grid.Row>
           </Grid.Column>
           <Grid.Column width={8}>
-            <ClipboardsList filterText={ this.state.filterText } types={ types }/>
+            <ClipboardsList filterText={ this.state.filterText } types={ this.props.types }/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -51,7 +51,8 @@ class clipboards extends Component {
 }
 
 const mapStateToProps = state => ({
-  account: state.account
+  account: state.account,
+  types: state.clipboard.types
 });
 
 export default connect(mapStateToProps)(clipboards);

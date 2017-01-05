@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table, Modal, Form, Button } from 'semantic-ui-react';
 import * as types from './../../constants/clipboard';
+import EditClipboard from './modalDialogClipboardComponent';
 
 class ClipboardItemComonent extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      clipboard: {
+        value: '',
+        type: ''
+      },
       modalOpen: false
     };
   }
@@ -26,7 +31,9 @@ class ClipboardItemComonent extends Component {
       value: '',
       type: ''
     });
-    this.setState({modalOpen: false});
+    this.setState({
+      modalOpen: false
+    });
   }
 
   handleOpen() {
@@ -65,7 +72,12 @@ class ClipboardItemComonent extends Component {
           {this.props.account}
         </Table.Cell>
         <Table.Cell>
-          { this.props.accountInfo && this.props.account === this.props.accountInfo.email ? delModal : null }
+        <EditClipboard types={ this.props.types } name="Edit" head="Edit clipboard"
+          clipboard={{ id: this.props._id, value: this.props.value, type: this.props.type}}
+          action="EDIT" />
+        </Table.Cell>
+        <Table.Cell>
+          { delModal }
         </Table.Cell>
       </Table.Row>
     );
@@ -73,7 +85,8 @@ class ClipboardItemComonent extends Component {
 }
 
 const mapStateToProps = state => ({
-  accountInfo: state.account.info
+  accountInfo: state.account.info,
+  types: state.clipboard.types
 });
 
 export default connect(mapStateToProps)(ClipboardItemComonent);

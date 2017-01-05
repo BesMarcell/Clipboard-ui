@@ -19,10 +19,16 @@ function deleteClipboard(id) {
 
 }
 
+function editClipboard(payload) {
+  const url = `${fullUrl}/clipboard/${payload.id}`;
+  return axios.put(url, {type: payload.type, value: payload.value}, {withCredentials: true});
+}
+
 const clipboard = {
   addClipboard,
   receiveClipboards,
-  deleteClipboard
+  deleteClipboard,
+  editClipboard
 };
 
 export default clipboard;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, Form, Label, Input, Select } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import * as types from './../../constants/clipboard';
 
 import validation from 'react-validation-mixin';
 import strategy from 'joi-validation-strategy';
@@ -12,8 +11,9 @@ class addClipboardModal extends Component {
     super(props);
     this.state = {
       clipboardInfo: {
-        value: '',
-        type: ''
+        value: this.props.clipboard.value || '',
+        type: this.props.clipboard.type || '',
+        id: this.props.clipboard.id || ''
       },
       errorMessages: {
         value: {
@@ -58,14 +58,15 @@ class addClipboardModal extends Component {
       } else {
         const { dispatch } = this.props;
         dispatch({
-          type: types.CLIPBOARD_ADD_REQUESTED,
+          type: `CLIPBOARD_${this.props.action}_REQUESTED`,
           payload: this.state.clipboardInfo
         });
         this.setState({ modalOpen: false });
         this.setState({
           clipboardInfo: {
             value: '',
-            type: ''
+            type: '',
+            id: ''
           }
         })
       }
@@ -97,7 +98,14 @@ class addClipboardModal extends Component {
   }
 
   handleOpen() {
-    this.setState({ modalOpen: true });
+    this.setState({
+      clipboardInfo: {
+              value: this.props.clipboard.value || '',
+              type: this.props.clipboard.type || '',
+              id: this.props.clipboard.id || ''
+            },
+      modalOpen: true
+    });
   }
 
   render() {
@@ -105,10 +113,10 @@ class addClipboardModal extends Component {
     let addModal = "";
     if (this.props.account.info) {
       addModal = (
-        <Modal trigger={<Button onClick={this.handleOpen.bind(this)} primary>ADD clipboard </Button>}
+        <Modal trigger={<Button onClick={this.handleOpen.bind(this)} primary>{this.props.name}</Button>}
           open={ this.state.modalOpen }
           onClose={this.handleClose.bind(this)} >
-          <Modal.Header>Add clipboard</Modal.Header>
+          <Modal.Header>{ this.props.head }</Modal.Header>
           <Modal.Content>
             <Form onSubmit={this.submitForm.bind(this)}>
               <Form.Field>
@@ -131,6 +139,7 @@ class addClipboardModal extends Component {
                 <Select
                 placeholder="select the type"
                 name="type"
+                defaultValue={this.state.clipboardInfo.type}
                 options={this.props.types}
                 onChange={this.handleSelect.bind(this)}/>
                 { this.state.errorMessages.type.show?
