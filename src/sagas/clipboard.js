@@ -18,7 +18,6 @@ function * clipboardReceive(action) {
   try {
     const result = yield call(Api.clipboard.receiveClipboards);
     yield put({ type: types.CLIPBOARDS_RECEIVE_SUCCESSED, clipboards: result.data });
-
   } catch (err) {
     yield put({ type: types.CLIPBOARDS_RECEIVE_FAILED, response: err.response.data });
   }

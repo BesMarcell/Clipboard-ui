@@ -143,10 +143,7 @@ class addClipboardModal extends Component {
           </Modal.Content>
         </Modal>
       )
-
     }
-
-
     return (
       <div>
         {addModal}

@@ -23,7 +23,7 @@ const clipboard = createReducer(initialState, {
   [types.CLIPBOARD_ADD_FAILED]: (state, payload) => {
     return {
       ...state,
-      errorMessage: payload.response.data.error,
+      errorMessage: payload.response.error,
       statusCode: payload.response.status
     };
   },
@@ -42,7 +42,7 @@ const clipboard = createReducer(initialState, {
   [types.CLIPBOARDS_RECEIVE_FAILED]: (state, payload) => {
     return {
       ...state,
-      errorMessage: payload.response.data.error,
+      errorMessage: payload.response.error,
       statusCode: payload.response.status
     };
   }

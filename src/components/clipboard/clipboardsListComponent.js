@@ -30,15 +30,15 @@ class clipboardList extends Component {
     }
     return (
       <div>
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          { clipboardsList }
-        </Table.Body>
-      </Table>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            { clipboardsList }
+          </Table.Body>
+        </Table>
       </div>
     );
   }

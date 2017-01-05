@@ -12,7 +12,8 @@ class ClipboardItemComonent extends Component {
     };
   }
 
-  deleteClipboard() {
+  deleteClipboard(event) {
+    event.preventDefault();
     const { dispatch } = this.props;
     dispatch({
       type: types.CLIPBOARD_DELETE_REQUESTED,
@@ -35,7 +36,7 @@ class ClipboardItemComonent extends Component {
   render() {
     const delModal = (
       <Modal trigger={<Button onClick={this.handleOpen.bind(this)}
-      secondary size="small">Delete</Button>}
+        secondary size="small">Delete</Button>}
         open={ this.state.modalOpen }
         onClose={this.handleClose.bind(this)} >
         <Modal.Header>
@@ -46,11 +47,11 @@ class ClipboardItemComonent extends Component {
         </Modal.Content>
         <Modal.Content>
           <Form onSubmit={this.deleteClipboard.bind(this)}>
-            <Button positive icon='checkmark' labelPosition='right' content='Yes' />
+            <Button positive icon="checkmark" labelPosition="right" content="Yes" />
           </Form>
         </Modal.Content>
       </Modal>
-    )
+    );
 
     return (
       <Table.Row>
@@ -73,6 +74,6 @@ class ClipboardItemComonent extends Component {
 
 const mapStateToProps = state => ({
   accountInfo: state.account.info
-})
+});
 
 export default connect(mapStateToProps)(ClipboardItemComonent);

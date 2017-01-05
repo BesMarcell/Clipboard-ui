@@ -28,27 +28,30 @@ class Sidebar extends Component {
     this.setState({
       active: name
     });
-    if (name === 'signout') {this.logout(); return browserHistory.push('/');}
+    if (name === 'signout') {
+      this.logout();
+      return browserHistory.push('/');
+    }
     browserHistory.push(`/${name}`);
   }
   render() {
     const active = this.state;
     return (
       <div>
-      You are: {this.props.account.info ? this.props.account.info.email:null}
+        You are: { this.props.account.info ? this.props.account.info.email : null }
       <Menu>
         <Menu.Item
-        active={active === ''}
-        name=''
-        onClick={this.clickHandler.bind(this)}>
+          active={active === ''}
+          name=""
+          onClick={this.clickHandler.bind(this)}>
           <Header>
             Home
           </Header>
         </Menu.Item>
         <Menu.Item
-        active={active === 'clipboards'}
-        name="clipboards"
-        onClick={this.clickHandler.bind(this)}>
+          active={ active === 'clipboards' }
+          name="clipboards"
+          onClick={this.clickHandler.bind(this)}>
           <Header>
             Clipboards
           </Header>
@@ -56,41 +59,44 @@ class Sidebar extends Component {
         <Menu.Menu position='right'>
           { this.props.account.isAuthenticated !== true ?
             <Menu.Item
-            active={active === 'signin'}
-            name="signin"
-            onClick={this.clickHandler.bind(this)}>
+              active={active === 'signin'}
+              name="signin"
+              onClick={this.clickHandler.bind(this)}>
               <Header as="h3">
                 <Button primary>SIGN IN</Button>
               </Header>
-            </Menu.Item>
-          : null}
+          </Menu.Item>
+          :
+          null }
             { this.props.account.isAuthenticated !== true ?
               <Menu.Item
-              active={active === 'signup'}
-              name="signup"
+                active={active === 'signup'}
+                name="signup"
               onClick={this.clickHandler.bind(this)}>
                 <Header as="h3">
                   <Button primary>SIGN UP</Button>
                 </Header>
               </Menu.Item>
-            : null}
+            :
+            null
+          }
 
-          {this.props.account.isAuthenticated === true ?
+          { this.props.account.isAuthenticated === true ?
             <Menu.Item
-            active={active === 'signout'}
-            name="signout"
-            onClick={this.clickHandler.bind(this)}>
+              active={active === 'signout'}
+              name="signout"
+              onClick={this.clickHandler.bind(this)}>
               <Header as="h3">
                 <Button>SIGN OUT</Button>
               </Header>
             </Menu.Item>
-          : null}
+          :
+          null
+        }
 
         </Menu.Menu>
       </Menu>
-        <div>
-        </div>
-        {/*this.renderButtons()*/}
+        {/* this.renderButtons() */}
       </div>
     );
   }
