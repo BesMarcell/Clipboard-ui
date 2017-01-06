@@ -5,6 +5,7 @@ import * as types from './../constants/account';
 import { Menu, Header, Button } from 'semantic-ui-react';
 
 class Sidebar extends Component {
+  state = {}
 
   renderButtons() {
     if (this.props.account.info === '') {
@@ -35,7 +36,7 @@ class Sidebar extends Component {
     browserHistory.push(`/${name}`);
   }
   render() {
-    const active = this.state;
+    const { active } = this.state;
     return (
       <div>
         You are: { this.props.account.info ? this.props.account.info.email : null }
