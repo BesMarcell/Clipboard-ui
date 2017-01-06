@@ -54,9 +54,13 @@ class ClipboardItemComonent extends Component {
         </Modal.Content>
         <Modal.Content>
           <Form onSubmit={this.deleteClipboard.bind(this)}>
-            <Button positive icon="checkmark" labelPosition="right" content="Yes" />
           </Form>
         </Modal.Content>
+        <Modal.Actions>
+          <Button primary onClick={this.deleteClipboard.bind(this)}>
+            OK
+          </Button>
+        </Modal.Actions>
       </Modal>
     );
 

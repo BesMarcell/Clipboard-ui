@@ -145,11 +145,14 @@ class addClipboardModal extends Component {
                 { this.state.errorMessages.type.show?
                 <Label basic color="red" pointing>{ this.state.errorMessages.type.message }</Label> : null}
               </Form.Field>
-              <Button primary disabled={!this.state.clipboardInfo.value || !this.state.clipboardInfo.type}>
-                OK
-              </Button>
             </Form>
           </Modal.Content>
+          <Modal.Actions>
+            <Button primary onClick={this.submitForm.bind(this)}
+            disabled={!this.state.clipboardInfo.value || !this.state.clipboardInfo.type}>
+              OK
+            </Button>
+          </Modal.Actions>
         </Modal>
       )
     }
