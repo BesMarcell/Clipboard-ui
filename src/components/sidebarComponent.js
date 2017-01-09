@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as types from './../constants/account';
@@ -102,6 +102,11 @@ class Sidebar extends Component {
     );
   }
 }
+
+Sidebar.propTypes = {
+  account: PropTypes.object
+}
+
 const mapStateToProps = state => ({
   account: state.account
 });

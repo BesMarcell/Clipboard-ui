@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router';
 import { Grid, Form, Label, Input, Button, Header, Message } from 'semantic-ui-react';
 import _ from 'lodash';
@@ -212,6 +212,10 @@ class Signup extends Component {
       </div>
     );
   }
+}
+
+Signup.propTypes = {
+  account: PropTypes.object
 }
 
 const mapStateToProps = state => ({

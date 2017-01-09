@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Button, Modal, Form, Label, Input, Select } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
@@ -162,6 +162,13 @@ class addClipboardModal extends Component {
       </div>
     );
   }
+}
+
+addClipboardModal.propTypes = {
+  account: PropTypes.object.isRequired,
+  clipboard: PropTypes.object,
+  types: PropTypes.array.isRequired,
+  action: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({

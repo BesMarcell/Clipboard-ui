@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as types from './../../constants/clipboard';
 import ClipboardItemComonent from './clipboardItemComonent';
@@ -42,6 +42,11 @@ class clipboardList extends Component {
       </div>
     );
   }
+}
+
+clipboardList.propTypes = {
+  clipboards: PropTypes.array,
+  filterText: PropTypes.string
 }
 
 const mapStateToProps = state => ({

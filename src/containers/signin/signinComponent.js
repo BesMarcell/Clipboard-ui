@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { Grid, Form, Input, Label, Button, Header, Message } from 'semantic-ui-react';
@@ -188,6 +188,10 @@ renderConnectError() {
       </div>
     )
   }
+}
+
+Signin.propTypes = {
+  account: PropTypes.object
 }
 
 const mapStateToProps = state => ({

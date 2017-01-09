@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Grid, Input, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import AddClipboard from './modalDialogClipboardComponent';
@@ -56,6 +56,11 @@ class clipboards extends Component {
       </div>
     );
   }
+}
+
+clipboards.propTypes = {
+  account: PropTypes.object.isRequired,
+  types: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({

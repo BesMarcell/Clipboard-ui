@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Table, Modal, Form, Button } from 'semantic-ui-react';
 import * as types from './../../constants/clipboard';
@@ -86,6 +86,15 @@ class ClipboardItemComonent extends Component {
       </Table.Row>
     );
   }
+}
+
+ClipboardItemComonent.propTypes = {
+  accountInfo: PropTypes.object.isRequired,
+  types: PropTypes.array.isRequired,
+  _id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  account: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
